@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Kalkulator
+    </title>
+</head>
+
+<body>
+
+    <form method="POST" action="/">
+        <input type="text" name="number_1" />
+        <input type="text" name="number_2" />
+
+        <select name="opeartion">
+            <option value="add" label="+"/>
+            <option value="subtract" label="-" />
+            <option value="divide" label="/" />
+            <option value="multiply" label="*" />
+        </select>
+
+        <input type="submit" value="Policz">
+    </form>
+
+
+    {% if calculation_result is not none %}
+        <h1>{{ calculation_result }}</h1>
+    {% endif %}
+
+    {% for calculation in calculations %}
+        {{ calculation.number_1 }} {{ calculation.operation }} {{ calculation.number_2 }} = {{ calculation.result }} 
+
+    {% endfor %}
+</body>
+
+</html>
